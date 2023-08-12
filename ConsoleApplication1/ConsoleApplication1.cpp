@@ -29,18 +29,19 @@ void MyDisplay() {
 
 	//////////// đầu
 
-	glutWireSphere(0.5, 20, 20);
+	glColor3f(0.1, 1.4, 0.0);
+	glutSolidSphere(0.5, 20, 20);
 
-	//////////// thân1 ////////////
+	////////////// thân1 ////////////
 	
 	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(0.9, 0.0, 0.0);//tinh tien
 	glScalef(0.75, 0.75, 1.0);//co dan
 	//glTranslatef(1.25, 0.0, 0.0);
-	glutSolidSphere(0.5, 20, 20);
+	glutWireSphere(0.5, 20, 20);
 
-	/////////// thân2 ////////////
+	///////////// thân2 ////////////
 	
 	glPopMatrix();
 	glPushMatrix();
@@ -48,22 +49,46 @@ void MyDisplay() {
 	glScalef(2.25, 0.75, 1.0);//co dan
 	glutWireSphere(0.5, 20, 20);
 
+	/////////// Mắt phải ////////////
+
+	glColor3f(1.0, 1.0, 0.0);
+	glPopMatrix();
+	glPushMatrix();
+	glRotatef(20, 1.0, 0.0, 0.0);
+	glTranslatef(-0.4, 0.2, 0.2);
+	glScalef(0.3, 0.4, 0.3);//co dan
+	
+	glutSolidSphere(0.5, 100, 100);
+
+	/////////// Mắt trái ////////////
+
+	glPopMatrix();
+	glPushMatrix();
+	glRotatef(20, -1.0, 0.0, 0.0);
+	glTranslatef(-0.4, 0.2, -0.2);
+	glScalef(0.3, 0.4, 0.3);//co dan
+	glutSolidSphere(0.5, 100, 100);
+
+
 	/////////// cánh phải ////////////
 
 	glPopMatrix();
 	glPushMatrix();
-	//glRotatef(0, 0, 1, 0);
-	glTranslatef(1.0, 2.4, 0.0);
+	glRotatef(40, -1, 0, 0);
+	glTranslatef(0.0, 0.0, 0.0);
 	glScalef(2.5, 1.0, 4.0);//co dan
+	glTranslatef(0.3, 0.0, 0.5);
 	glutWireSphere(0.5, 20, 20);
+	
 
 	/////////// cánh trái ////////////
 
 	glPopMatrix();
 	glPushMatrix();
-	//glRotatef(0, 0, 1, 0);
-	glTranslatef(1.0, - 2.4, 0.0);
-	glScalef(2.5, 1.0, 4.0);//co dan
+	glRotatef(40, 1, 0, 0);
+	glTranslatef(0.0, 0.0, 0.0);
+	glScalef(2.5, 1.0, -4.0);//co dan
+	glTranslatef(0.3, 0.0, 0.5);
 	glutWireSphere(0.5, 20, 20);
 
 	//glPushMatrix();
@@ -121,7 +146,7 @@ void reshape(int w, int h)
 	gluPerspective(45,(GLfloat) w/(GLfloat )h, 1, 200);//ma tran chieu
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(5, 7, 10, 0, 0, 0, 0, 1, 0);// nhin truc z=10, cho trục y lên trên x=0, y=1, z=0
+	gluLookAt(-3, 10.0 , -4.0, 0, 0, 0, 0, 1, 0);// nhin truc z=10, cho trục y lên trên x=0, y=1, z=0
 
 }
 
