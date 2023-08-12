@@ -57,6 +57,15 @@ void MyDisplay() {
 	glScalef(2.5, 1.0, 4.0);//co dan
 	glutWireSphere(0.5, 20, 20);
 
+	/////////// cánh trái ////////////
+
+	glPopMatrix();
+	glPushMatrix();
+	//glRotatef(0, 0, 1, 0);
+	glTranslatef(1.0, - 2.4, 0.0);
+	glScalef(2.5, 1.0, 4.0);//co dan
+	glutWireSphere(0.5, 20, 20);
+
 	//glPushMatrix();
 	//glutSolidCube(2);
 	
