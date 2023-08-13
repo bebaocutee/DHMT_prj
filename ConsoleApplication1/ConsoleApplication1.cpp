@@ -98,8 +98,8 @@ void MyDisplay() {
 	//////////// đầu
 
 	glColor3f(0.9, 0.8, 0.0);
-	//glutSolidSphere(0.5, 20, 20);
-	glutWireSphere(0.5, 20, 20);
+	glutSolidSphere(0.5, 20, 20);
+	//glutWireSphere(0.5, 20, 20);
 
 	////////////// thân1 ////////////
 	
@@ -113,13 +113,13 @@ void MyDisplay() {
 
 	///////////// thân2 ////////////
 	
-	glColor3f(1.0, 0.8, 0.6);
+	glColor3f(0.7, 1.0, 0.0);
 	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(1.7, 0.0, 0.0);
 	glScalef(3.0, 1.0, 1.0);//co dan
-	glutWireSphere(0.5, 20, 20);
-	//glutSolidSphere(0.5, 20, 20);
+	//glutWireSphere(0.5, 20, 20);
+	glutSolidSphere(0.5, 20, 20);
 
 	/////////// Mắt phải to////////////
 
@@ -198,64 +198,6 @@ void MyDisplay() {
 	glTranslatef(-0.7, 0.4, 0.0);
 	drawArc(0.0, 0.0, 0.0, 0.5, 0, 0.5 * PI / 0.75, 50, 0.01);
 	
-
-	/////////// Chân phải trên 1 ////////////
-	/*glPopMatrix();
-	glPushMatrix();
-	glTranslatef(2.0, 0.0, 0.0);
-	glRotatef(45, 1.0, 0.0, 0.0);
-	glRotatef(150, 0.0, 1.0, 0.0);
-	glScalef(1.0, 0.05, 0.05);
-	glutSolidCube(1.0);
-
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(1.05, -0.85, -0.85);
-	glRotatef(-45, 1.0, 0.0, 0.0);
-	glRotatef(-150, 0.0, 1.0, 0.0);
-	glScalef(1.0, 0.05, 0.05);
-	glutSolidCube(0.5);*/
-
-	
-
-	/////////// Chân phải dưới 1 ////////////
-	/*glPopMatrix();
-	glPushMatrix();
-	glTranslatef(1.73, -1.6, 1.0);
-	glRotatef(30, 0.0, 0.0, 1.0);
-	glScalef(0.05, 1.3, 0.05);
-	glutSolidCube(1.0);
-
-	glPopMatrix();
-	glPushMatrix();
-
-	glTranslatef(1.73, -1.6, -1.0);
-	glRotatef(30, 0.0, 0.0, 1.0);
-	glScalef(0.05, 1.3, 0.05);
-	glutSolidCube(1.0);*/
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	/////////// Chân phải trên 1 ////////////
-
-
-	/*glColor3f(0.0, 0.0, 0.0); 
-	glPopMatrix();
-	glPushMatrix();
-
-	glRotatef(90, 1.0, 0.0, 0.0);
-	glTranslatef(0.5, 0.0, 0.0);
-	drawLine(0.0, 0.0, 0.0, 0.0, 0.5, 0.5);*/
-
-	///////////// Chân phải dưới 1 ////////////
-
-	//glPopMatrix();
-	//glPushMatrix();
-
-	////glRotatef(-90, 1.0, 0.0, 0.0);
-	//glTranslatef(0.5, -1.0, 0.0);
-	//draw3DLine(0.0, 0.0, 0.0, 0.0, 0.5, 0.5);
-	/////////////////////////////////////////////////////////////////////////////////////////////
 
 	///////////// Chân phải trên 1 ////////////
 
@@ -395,13 +337,13 @@ void MyDisplay() {
 
 	/////////////// cánh phải 2////////////
 
-	glColor3f(0.9, 0.7, 0.5);
+	glColor3f(0.8, 0.6, 0.0);
 	glPopMatrix();
 	glPushMatrix();
 	glRotatef(40, -1, 0, 0);
 	glTranslatef(0.0, 0.0, 0.0);
-	glScalef(2.2, 1.5, 2.5);//co dan
-	glTranslatef(0.75, 0.0, 0.5);
+	glScalef(2, 1.5, 2.5);//co dan
+	glTranslatef(0.7, 0.0, 0.5);
 	glutSolidSphere(0.5, 20, 20);
 
 
@@ -411,9 +353,9 @@ void MyDisplay() {
 	glPushMatrix();
 	glRotatef(40, 1, 0,0);
 	glTranslatef(0.0, 0.0, 0.0);
-	glScalef(1.5, 1.5, -2.0);//co dan
+	glScalef(2.0, 1.5, -2.5);//co dan
 	//glRotatef(0, 1, 0, 0);
-	glTranslatef(0.75, 0.0, 0.5);
+	glTranslatef(0.7, 0.0, 0.5);
 	glutSolidSphere(0.5, 20, 20);
 
 
@@ -464,7 +406,7 @@ void reshape(int w, int h)
 	gluPerspective(45,(GLfloat) w/(GLfloat )h, 1, 200);//ma tran chieu
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(-10.0, 2.0, 7.0, 0, 0, 0, 0, 1, 0);// nhin truc z=10, cho trục y lên trên x=0, y=1, z=0
+	gluLookAt(-5.0, 10.0, 10.0, 0, 0, 0, 0, 1, 0);// nhin truc z=10, cho trục y lên trên x=0, y=1, z=0
 
 }
 
