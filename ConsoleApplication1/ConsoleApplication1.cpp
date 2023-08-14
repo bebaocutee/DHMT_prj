@@ -10,6 +10,8 @@ float transX = 0.0;
 float step = 0.01;
 bool movingForward = true;
 
+bool rotating = true;
+
 float x = 0.0;
 float y = 0.0;
 float z = 0.0;
@@ -113,27 +115,13 @@ void MyDisplay() {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
 
 	//////////// đầu
+
 	glTranslatef(transX, 0.0, 0.0);
-	//glColor3f(0.9, 0.8, 0.0);
 	glutSolidSphere(0.5, 20, 20);
-
-	
-
-	//glutWireSphere(0.5, 20, 20);
-
-	////////////// thân1 ////////////
-	
-	
-	//glPopMatrix();
-	//glPushMatrix();
-	//glTranslatef(0.95, 0.0, 0.0);//tinh tien
-	//glScalef(0.9, 0.7, 0.7);//co dan
-	////glTranslatef(1.25, 0.0, 0.0);
 	//glutWireSphere(0.5, 20, 20);
 
 	///////////// thân2 ////////////
 	
-	//glColor3f(0.7, 1.0, 0.0);
 	glPopMatrix();
 	glPushMatrix();
 
@@ -150,20 +138,8 @@ void MyDisplay() {
 	glTranslatef(transX, 0.0, 0.0);
 	glTranslatef(1.7, 0.0, 0.0);
 	glScalef(3.0, 1.0, 1.0);//co dan
-	//glutWireSphere(0.5, 20, 20);
 	glutSolidSphere(0.5, 20, 20);
 	
-
-	//glEnable(GL_LIGHT1);
-	//GLfloat ambient1[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
-	//GLfloat diffuse1[] = { 0.5, 1.5, 1.5, 1.0 };// as khuếch tán
-	//GLfloat specular1[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
-	//GLfloat position1[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
-
-	//glLightfv(GL_LIGHT1, GL_AMBIENT, ambient1);// nguồn sáng, hàm số, gt
-	//glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse1);
-	//glLightfv(GL_LIGHT1, GL_SPECULAR, specular1);
-
 	/////////// Mắt phải to////////////
 	
 	glPopMatrix();
@@ -225,7 +201,6 @@ void MyDisplay() {
 	glRotatef(90, 1.0, 0.0, 0.0);
 	glTranslatef(-0.34, 0.0, 0.2);
 	glScalef(0.3, 0.3, 0.3);//co dan
-	//glutSolidSphere(0.5, 100, 100);
 	glutSolidCone(0.5, 0.5, 20, 20);
 
 	/////////// Râu phải ////////////
@@ -292,7 +267,7 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glTranslatef(1.0, -0.2, 0.75);
-	glRotatef(-120, 0.0, 0.0, 1.0);
+	glRotatef(-90, 0.0, 0.0, 1.0);
 	drawLine(0.0, 0.0, 0.0, 0.4, 0.0, 0.0);
 
 	///////////// Chân phải trên 3 ////////////
@@ -313,7 +288,7 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glTranslatef(1.7, -0.2, 0.75);
-	glRotatef(-120, 0.0, 0.0, 1.0);
+	glRotatef(-50, 0.0, 0.0, 1.0);
 	drawLine(0.0, 0.0, 0.0, 0.4, 0.0, 0.0);
 
 
@@ -357,7 +332,7 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glTranslatef(0.95, -0.2, -0.75);
-	glRotatef(-120, 0.0, 0.0, 1.0);
+	glRotatef(-90, 0.0, 0.0, 1.0);
 	drawLine(0.0, 0.0, 0.0, 0.4, 0.0, 0.0);
 
 
@@ -379,12 +354,11 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glTranslatef(1.7, -0.2, -0.75);
-	glRotatef(-120, 0.0, 0.0, 1.0);
+	glRotatef(-50, 0.0, 0.0, 1.0);
 	drawLine(0.0, 0.0, 0.0, 0.4, 0.0, 0.0);
 
 	/////////// cánh phải 1////////////
 
-	//glColor3f(0.9 , 0.5 ,0.1);
 	glPopMatrix();
 	glPushMatrix();
 
@@ -400,18 +374,13 @@ void MyDisplay() {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specular2);
 	
 	glTranslatef(transX, 0.0, 0.0);
-	glRotatef(-10 + sin (-1.0) * 1.3, 1, 0, 0);
-	teta = teta + 0.1;
-	if (teta >= 50) teta = 0;
+	glRotatef(teta, 1, 0, 0);
 
-	glRotatef(40, -1, 0, 0);
-	glTranslatef(0.0, 0.0, 0.0);
+	glRotatef(70, -1, 0, 0);
 	glScalef(2.0, 0.2, 4.0);//co dan
 	glTranslatef(0.5, 0.2, 0.5);
 	glutSolidSphere(0.5, 20, 20);
-	//glutWireSphere(0.5, 20, 20);
 
-	
 
 	/////////// cánh trái 1 ////////////
 
@@ -420,20 +389,16 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glRotatef(teta , -1, 0, 0);
-	teta = teta + 0.1; 
-	if (teta <= -50) teta = 0;
 
-	glRotatef(40, 1, 0, 0);
-	glTranslatef(0.0, 0.0, 0.0);
+	glRotatef(70, 1, 0, 0);
+	//glTranslatef(0.0, 0.0, 0.0);
 	glScalef(2.0, 0.2, -4.0);//co dan
 	glTranslatef(0.5, 0.2, 0.5);
 	glutSolidSphere(0.5, 20, 20);
-	//glutWireSphere(0.5, 20, 20);
 
 
 	/////////////// cánh phải 2////////////
 
-	//glColor3f(0.8, 0.6, 0.0);
 	glPopMatrix();
 	glPushMatrix();
 
@@ -450,17 +415,13 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glRotatef(teta , 1, 0, 0);
-	teta = teta + 0.1;
-	if (teta >= 50) teta = 0;
 
-	glRotatef(40, -1, 0, 0);
+	glRotatef(70, -1, 0, 0);
 	//glTranslatef(0.0, 0.0, 0.0);
 	glScalef(1.5, 0.2, 2.5);//co dan
 	glTranslatef(1.3, 0.2, 0.5);
 	glutSolidSphere(0.5, 20, 20);
-	//glutWireSphere(0.5, 20, 20);
 
-	
 
 	///////////// cánh trái 2////////////
 
@@ -469,55 +430,22 @@ void MyDisplay() {
 
 	glTranslatef(transX, 0.0, 0.0);
 	glRotatef(teta, -1, 0, 0);
-	teta = teta + 0.1;
-	if (teta <= -50) teta = 0;
 
-
-	glRotatef(40, 1, 0,0);
+	glRotatef(70, 1, 0,0);
 	//glTranslatef(0.0, 0.0, 0.0);
 	glScalef(1.5, 0.2, -2.5);//co dan
 	glTranslatef(1.3, 0.2, 0.5);
 	glutSolidSphere(0.5, 20, 20);
-	//glutWireSphere(0.5, 20, 20);
 
 
-	/////////////// cánh phải 3////////////
 
-	//glColor3f(0.7, 0.4, 1.0);
-	//glPopMatrix();
-	//glPushMatrix();
-	//glRotatef(-65, 1, 0, 0);
-	//glTranslatef(0.0, 0.0, 0.0);
-	//glScalef(0.5, 0.5, 4.0);//co dan
-	//glTranslatef(0.7, 0.0, 0.5);
-	//glutWireSphere(0.5, 20, 20);
-
-
-	///////////// cánh trái 3////////////
-
-	//glPopMatrix();
-	//glPushMatrix();
-	//glRotatef(65, 1, 0, 0);
-	//glTranslatef(0.0, 0.0, 0.0);
-	//glScalef(0.5, 0.5, -4.0);//co dan
-	//glTranslatef(0.7, 0.0, 0.5);
-	//glutWireSphere(0.5, 20, 20);
-
-	//glPopMatrix();
-	//glPushMatrix();
-	//glColor3f(1.0f, 0.0f, 0.0f);
-	//glRotatef(90, 0, 1, 1);
-	////glTranslatef(0.0, 0.0, 0.0);
-	//glScalef(0.5, 0.5, -4.0);
-	//glTranslatef(0.0, 2.0, 0.5);
-	//drawWing(0.0, 0.0, 0.0, 4.0, 4.0, 200);
 
 	glFlush();
 	
 }
 
 void update(int value) {
-	if (!movingForward) {	
+	if (!movingForward) {
 		transX = 0;
 		movingForward = true;
 		
@@ -528,6 +456,22 @@ void update(int value) {
 			movingForward = false;
 		}
 	}
+	/////cánh//
+	if (rotating) {
+		teta += 1.0; // tăng góc xoay lên 1 độ
+
+		if (teta > 70.0) {
+			rotating = false; // bắt đầu xoay ngược lại
+		}
+	}
+	else {
+		teta -= 1.0; // giảm góc xoay xuống 1 độ
+
+		if (teta < 0.0) {
+			rotating = true; // bắt đầu xoay ngược lại
+		}
+	}
+
 	glutPostRedisplay(); // Gọi hàm display lại để cập nhật hình ảnh
 	glutTimerFunc(15, update, 0); // Gọi lại hàm update sau 100ms
 }
@@ -537,40 +481,17 @@ void init()
 {
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glEnable(GL_DEPTH_TEST); // kiểm tra chiều sâu
-	//glEnable(GL_LIGHTING);
-	//
-	//glEnable(GL_LIGHT0);
-	//GLfloat ambient[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
-	//GLfloat diffuse[] = { 1.0, 0.5, 0.5, 1.0 };// as khuếch tán
-	//GLfloat specular[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
-	//GLfloat position[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);// nguồn sáng, hàm số, gt
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-	//glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
-
-	//glEnable(GL_LIGHT1);
-	//GLfloat ambient1[] = { 1.0, 0.5, 1.0, 1.0 };// ánh sáng môi trường, gt cuối là anpha
-	//GLfloat diffuse1[] = { 0.5, 1.0, 1.0, 1.0 };// as khuếch tán
-	//GLfloat specular1[] = { 1.0, 0.0, 0.0, 0.0 };// phản xạ
-	//GLfloat position1[] = { 1.0, 1.0, 1.0, 1.0 };// vị trí nguồn sáng
-	//glLightfv(GL_LIGHT1, GL_AMBIENT, ambient1);// nguồn sáng, hàm số, gt
-	//glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse1);
-	//glLightfv(GL_LIGHT1, GL_SPECULAR, specular1);
-
-
-
-
 
 }
 void reshape(int w, int h)
 {
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-	glMatrixMode(GL_PROJECTION);//tbao su mt chieu
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45,(GLfloat) w/(GLfloat )h, 1, 200);//ma tran chieu
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(-10.0, 5.0, 7.0, 0, 0, 0, 0, 1, 0);// nhin truc z=10, cho trục y lên trên x=0, y=1, z=0
+	gluLookAt(-10.0, 2.0, -5.0, 0, 0, 0, 0, 1, 0);
 
 }
 
@@ -581,7 +502,7 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("OpenGL Sample Drawing");
 	glEnable(GL_DEPTH_TEST);
-	glutTimerFunc(0, update, 0);
+	glutTimerFunc(15, update, 0);
 
 	init();
 	glutDisplayFunc(MyDisplay);
